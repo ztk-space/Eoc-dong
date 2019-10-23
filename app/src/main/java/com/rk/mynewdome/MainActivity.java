@@ -22,6 +22,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         recyclerView = findViewById(R.id.recy);
+
+
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         ImageSelectorUtils.openPhoto(MainActivity.this, REQUEST_CODE, false, 9);
     }
