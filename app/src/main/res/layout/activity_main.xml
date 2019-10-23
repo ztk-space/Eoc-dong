@@ -6,10 +6,10 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-<androidx.recyclerview.widget.RecyclerView
+<ListView
     android:layout_width="match_parent"
     android:id="@+id/recy"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
     tools:ignore="MissingConstraints" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
