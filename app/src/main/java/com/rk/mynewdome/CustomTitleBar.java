@@ -9,6 +9,9 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+//附上网址
+//  https://blog.csdn.net/qq1271396448/article/details/78686052
+
 public class CustomTitleBar extends RelativeLayout {
     private ImageView ivBack;
     private TextView tvTitle;
