@@ -9,6 +9,8 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.rk.mynewdome.bean.VideoInfo;
+
 import java.util.List;
 
 public class VideoAdapter extends BaseAdapter {

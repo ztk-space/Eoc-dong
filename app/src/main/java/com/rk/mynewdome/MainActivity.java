@@ -2,29 +2,25 @@ package com.rk.mynewdome;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.database.Cursor;
-import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.util.Log;
-import android.widget.ListView;
+import android.widget.Button;
 
-import com.donkingliang.imageselector.utils.ImageSelector;
-import com.donkingliang.imageselector.utils.ImageSelectorUtils;
+import com.rk.mynewdome.bean.VideoInfo;
 
-import java.io.File;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 
 import static android.Manifest.permission.READ_PHONE_STATE;
 import static android.Manifest.permission.WRITE_EXTERNAL_STORAGE;
 
 public class MainActivity extends AppCompatActivity {
+    private Button button;
     private RecyclerView recyclerView;
     private static final int REQUEST_CODE = 1;
     private static final String TAG = MainActivity.class.getSimpleName();
@@ -68,9 +64,11 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        initVideoData();
-        ListView lvLocalVideoList = findViewById(R.id.recy);
-        lvLocalVideoList.setAdapter(new VideoAdapter(this, mVideoInfos));
+        button = findViewById(R.id.btn);
+        startActivity(new Intent(this,EventBusActivity.class));
+        //initVideoData();
+//        ListView lvLocalVideoList = findViewById(R.id.recy);
+//        lvLocalVideoList.setAdapter(new VideoAdapter(this, mVideoInfos));
 //        recyclerView.setLayoutManager(new LinearLayoutManager(this));
 //        ImageSelectorUtils.openPhoto(MainActivity.this, REQUEST_CODE, false, 9);
     }

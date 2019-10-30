@@ -1,4 +1,4 @@
-package com.rk.mynewdome;
+package com.rk.mynewdome.bean;
 
 public class VideoInfo {
     public int id;
