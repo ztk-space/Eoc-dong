@@ -34,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
         recyclerView = findViewById(R.id.recy);
         list.add("定西以南");
         list.add(".");
+
         list.add("定北以东");
         list.add("定西以北");
         list.add("定东以中");
