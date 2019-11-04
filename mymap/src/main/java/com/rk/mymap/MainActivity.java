@@ -1,36 +1,22 @@
 package com.rk.mymap;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.ActivityCompat;
-import androidx.core.content.ContextCompat;
-
-import android.Manifest;
-import android.content.pm.PackageManager;
 import android.graphics.Color;
-import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
-import android.widget.Button;
-import android.widget.Toast;
-
 import com.baidu.location.BDAbstractLocationListener;
 import com.baidu.location.BDLocation;
-import com.baidu.location.BDLocationListener;
 import com.baidu.location.LocationClient;
 import com.baidu.location.LocationClientOption;
-import com.baidu.mapapi.CoordType;
-import com.baidu.mapapi.SDKInitializer;
 import com.baidu.mapapi.map.BaiduMap;
 import com.baidu.mapapi.map.BitmapDescriptor;
 import com.baidu.mapapi.map.BitmapDescriptorFactory;
-import com.baidu.mapapi.map.MapStatus;
 import com.baidu.mapapi.map.MapStatusUpdate;
 import com.baidu.mapapi.map.MapStatusUpdateFactory;
 import com.baidu.mapapi.map.MapView;
 import com.baidu.mapapi.map.MyLocationConfiguration;
 import com.baidu.mapapi.map.MyLocationData;
 import com.baidu.mapapi.model.LatLng;
-
 import static android.Manifest.permission.ACCESS_COARSE_LOCATION;
 import static android.Manifest.permission.ACCESS_FINE_LOCATION;
 import static android.Manifest.permission.ACCESS_NETWORK_STATE;
@@ -59,7 +45,6 @@ public class MainActivity extends AppCompatActivity {
         mMapView = findViewById(R.id.bmapView);
         mBaiduMap = mMapView.getMap();
         mBaiduMap.setMyLocationEnabled(true);
-        mBaiduMap.setMapType(BaiduMap.MAP_TYPE_NORMAL);
         //默认显示普通地图
         mBaiduMap.setMapType(BaiduMap.MAP_TYPE_NORMAL);
         mBaiduMap.setMyLocationConfiguration(locationConfig());
@@ -72,19 +57,14 @@ public class MainActivity extends AppCompatActivity {
         option = new LocationClientOption();
 
         option.setLocationMode(LocationClientOption.LocationMode.Hight_Accuracy);
-
+        option.setIsNeedLocationDescribe(true);
         option.setCoorType("bd09ll");
-
         option.setScanSpan(1000);
-
         option.setOpenGps(true);
-
         mLocationClient.setLocOption(option);
         mLocationClient.start();
-
         // 开启定位图层
         mBaiduMap.setMyLocationEnabled(true);
-
     }
     public class MyLocationListener extends BDAbstractLocationListener{
         @Override
@@ -95,13 +75,11 @@ public class MainActivity extends AppCompatActivity {
 
             double latitude = location.getLatitude();    //获取纬度信息
             double longitude = location.getLongitude();    //获取经度信息
-            Log.i("TAG",latitude+"======");
-            Log.i("TAG",longitude+"======");
+//            Log.i("TAG",latitude+"======");
+//            Log.i("TAG",longitude+"======");
             float radius = location.getRadius();    //获取定位精度，默认值为0.0f
-
             String coorType = location.getCoorType();
             //获取经纬度坐标类型，以LocationClientOption中设置过的坐标类型为准
-
             int errorCode = location.getLocType();
             //获取定位类型、定位错误返回码，具体信息可参照类参考中BDLocation类中的说明
             //            // 设置定位数据
@@ -110,22 +88,19 @@ public class MainActivity extends AppCompatActivity {
                     // 此处设置开发者获取到的方向信息，顺时针0-360
                     .direction(100).latitude(location.getLatitude())
                     .longitude(location.getLongitude()).build();
-
             mBaiduMap.setMyLocationData(locData);
-
           // mLocationClient.stop();
-
             //地理坐标基本数据结构
             LatLng latLng=new LatLng(latitude,longitude);
             //描述地图状态将要发生的变化,通过当前经纬度来使地图显示到该位置
             MapStatusUpdate msu= MapStatusUpdateFactory.newLatLng(latLng);
             //改变地图状态
             mBaiduMap.setMapStatus(msu);
-
-            String buildingID = location.getBuildingID();// 百度内部建筑物ID
-            String buildingName = location.getBuildingName();// 百度内部建筑物缩写
-            String floor = location.getFloor();// 室内定位的楼层信息，如 f1,f2,b1,b2
-
+//            String buildingID = location.getBuildingID();// 百度内部建筑物ID
+//            String buildingName = location.getBuildingName();// 百度内部建筑物缩写
+//            String floor = location.getFloor();// 室内定位的楼层信息，如 f1,f2,b1,b2
+            String locationDescribe = location.getLocationDescribe();
+            Log.i("TAG",locationDescribe+"_____________________");
         }
     }
     @Override
