@@ -6,7 +6,10 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".MainActivity">
-
+     <com.rk.myfeaturesapp.util.CustomTitleBar
+         android:id="@+id/maintitlebar"
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"/>
      <Button
          android:id="@+id/btn_layout"
          android:text="tablayout"
@@ -17,7 +20,23 @@
          android:layout_height="wrap_content"/>
      <Button
          android:id="@+id/btn_Bottomnavigation"
-         android:text="Bottom navigation"
+         android:text="BottomNavigationBar"
+         android:layout_width="match_parent"
+         android:layout_marginRight="50dp"
+         android:layout_marginLeft="50dp"
+         android:layout_marginTop="50dp"
+         android:layout_height="wrap_content"/>
+     <Button
+         android:id="@+id/btn_SMS"
+         android:text="SMS"
+         android:layout_width="match_parent"
+         android:layout_marginRight="50dp"
+         android:layout_marginLeft="50dp"
+         android:layout_marginTop="50dp"
+         android:layout_height="wrap_content"/>
+     <Button
+         android:id="@+id/btn_camear"
+         android:text="CAMERA"
          android:layout_width="match_parent"
          android:layout_marginRight="50dp"
          android:layout_marginLeft="50dp"

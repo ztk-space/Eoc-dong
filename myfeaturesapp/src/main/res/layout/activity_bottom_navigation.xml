@@ -6,6 +6,9 @@
     android:orientation="vertical"
     android:layout_height="match_parent"
     tools:context=".BottomNavigationActivity">
+    <com.rk.myfeaturesapp.util.StatusBarView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"></com.rk.myfeaturesapp.util.StatusBarView>
     <FrameLayout
         android:id="@+id/fra"
         android:layout_weight="9"

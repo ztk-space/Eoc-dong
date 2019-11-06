@@ -3,22 +3,48 @@ package com.rk.myfeaturesapp;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.Color;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.Button;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+import com.rk.myfeaturesapp.base.BaseActivity;
+import com.rk.myfeaturesapp.util.CustomTitleBar;
+
+public class MainActivity extends BaseActivity implements View.OnClickListener {
 
     private Button button;
     private Button Bottomnavigation;
+    private Button SMS;
+    private Button camear;
+    private CustomTitleBar customTitleBar;
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+    }
+
+    @Override
+    protected void init() {
         button = findViewById(R.id.btn_layout);
         Bottomnavigation = findViewById(R.id.btn_Bottomnavigation);
+        SMS = findViewById(R.id.btn_SMS);
+        camear = findViewById(R.id.btn_camear);
+        customTitleBar = findViewById(R.id.maintitlebar);
+        customTitleBar
+                .setTitle("功能中心");
+        customTitleBar.hideBackImg();
         button.setOnClickListener(this);
         Bottomnavigation.setOnClickListener(this);
+        SMS.setOnClickListener(this);
+        camear.setOnClickListener(this);
+    }
+
+    @Override
+    protected int findView() {
+        return R.layout.activity_main;
     }
 
     @Override
@@ -29,6 +55,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.btn_Bottomnavigation:
                 startActivity(new Intent(MainActivity.this,BottomNavigationActivity.class));
+                break;
+            case R.id.btn_SMS:
+                startActivity(new Intent(MainActivity.this,SMSActivity.class));
+                break;
+            case R.id.btn_camear:
+                startActivity(new Intent(MainActivity.this,CamearActivity.class));
                 break;
         }
     }
