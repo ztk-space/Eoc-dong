@@ -245,6 +245,7 @@ public class CamearActivity extends BaseActivity implements View.OnClickListener
         if (resultCode == RESULT_OK && requestCode == ACTION_VIDEO_CAPTURES) {//获取系统照片上传
             Uri uri=data.getData();
             Log.i("TAG", "直接返回视频数据"+uri.getPath());
+            //https://blog.csdn.net/luanpeng825485697/article/details/78543467
 
         }
     }
