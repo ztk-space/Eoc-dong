@@ -22,6 +22,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     private Button camear;
     private Button contact;
     private CustomTitleBar customTitleBar;
+    private Button opencontacts;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,6 +35,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         SMS = findViewById(R.id.btn_SMS);
         camear = findViewById(R.id.btn_camear);
         contact = findViewById(R.id.btn_contact);
+        opencontacts = findViewById(R.id.btn_opencontacts);
         customTitleBar = findViewById(R.id.maintitlebar);
         customTitleBar
                 .setTitle("功能中心");
@@ -43,6 +45,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         SMS.setOnClickListener(this);
         camear.setOnClickListener(this);
         contact.setOnClickListener(this);
+        opencontacts.setOnClickListener(this);
     }
 
     @Override
@@ -67,6 +70,9 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                 break;
             case R.id.btn_contact:
                 startActivity(new Intent(MainActivity.this,ContactActivity.class));
+                break;
+            case R.id.btn_opencontacts:
+                startActivity(new Intent(MainActivity.this,OpencontactsActivity.class));
                 break;
         }
     }
