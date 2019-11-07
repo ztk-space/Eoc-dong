@@ -52,9 +52,23 @@ public class ContactActivity extends BaseActivity implements View.OnClickListene
         customTitleBar.setTitle("联系人");
         button = findViewById(R.id.getcontact);
         button.setOnClickListener(this);
-        checkPermission();
+
     }
 
+
+    @Override
+    protected int findView() {
+        return R.layout.activity_contact;
+    }
+
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.getcontact:
+                checkPermission();
+                break;
+        }
+    }
     private void checkPermission() {
         unPermissionList.clear();//清空申请的没有通过的权限
         //逐个判断是否还有未通过的权限
@@ -73,21 +87,6 @@ public class ContactActivity extends BaseActivity implements View.OnClickListene
             Log.i("TAG", "check 权限都已经申请通过");
         }
     }
-
-    @Override
-    protected int findView() {
-        return R.layout.activity_contact;
-    }
-
-    @Override
-    public void onClick(View view) {
-        switch (view.getId()) {
-            case R.id.getcontact:
-
-                break;
-        }
-    }
-
     /**
      * 5.请求权限后回调的方法
      *
