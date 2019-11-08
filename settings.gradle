@@ -1,2 +1,2 @@
-include ':app', ':myrecy', ':statusbar', ':mylist', ':mymap', ':myshare', ':myalipay', ':mypush', ':myrongyun', ':myfeaturesapp'
+include ':app', ':myrecy', ':statusbar', ':mylist', ':mymap', ':myshare', ':myalipay', ':mypush', ':myrongyun', ':myfeaturesapp', ':easeui', ':simpledemo'
 rootProject.name='My NewDome'

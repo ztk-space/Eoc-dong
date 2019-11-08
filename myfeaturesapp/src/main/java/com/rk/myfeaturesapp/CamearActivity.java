@@ -101,6 +101,7 @@ public class CamearActivity extends BaseActivity implements View.OnClickListener
                 startActivityForResult(intent, REQUEST_PHOTO_CODE);
                 break;
             case R.id.openCamera:
+                //打开相机录像的时候先打开权限
                 openCamera();
                 break;
         }

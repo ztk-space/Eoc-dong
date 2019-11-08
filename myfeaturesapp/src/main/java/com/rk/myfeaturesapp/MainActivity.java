@@ -8,12 +8,14 @@ import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
 
 import com.rk.myfeaturesapp.base.BaseActivity;
+import com.rk.myfeaturesapp.util.AndroidDeviceInfo;
 import com.rk.myfeaturesapp.util.CustomTitleBar;
 
 public class MainActivity extends BaseActivity implements View.OnClickListener {
@@ -26,6 +28,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     private CustomTitleBar customTitleBar;
     private Button opencontacts;
     private Button switchappicon;
+    private Button easeui;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,14 +36,17 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
 
     @Override
     protected void init() {
+        String phoneModel = AndroidDeviceInfo.getPhoneModel();
+        String phoneProducer = AndroidDeviceInfo.getPhoneProducer();
+        Log.i("TAG","phoneModel"+phoneModel+"phoneProducer"+phoneProducer);
 // 下面的点击切换了之后 一进程序再默认切换回来
-        PackageManager packageManager = getPackageManager();
-        packageManager.setComponentEnabledSetting(new ComponentName(this, getPackageName() +
-                        ".RoundActivity"), PackageManager.COMPONENT_ENABLED_STATE_DISABLED,
-                PackageManager.DONT_KILL_APP);
-        packageManager.setComponentEnabledSetting(new ComponentName(this, getPackageName() +
-                ".MainActivity"), PackageManager.COMPONENT_ENABLED_STATE_ENABLED, PackageManager
-                .DONT_KILL_APP);
+//        PackageManager packageManager = getPackageManager();
+//        packageManager.setComponentEnabledSetting(new ComponentName(this, getPackageName() +
+//                        ".RoundActivity"), PackageManager.COMPONENT_ENABLED_STATE_DISABLED,
+//                PackageManager.DONT_KILL_APP);
+//        packageManager.setComponentEnabledSetting(new ComponentName(this, getPackageName() +
+//                ".MainActivity"), PackageManager.COMPONENT_ENABLED_STATE_ENABLED, PackageManager
+//                .DONT_KILL_APP);
 
         button = findViewById(R.id.btn_layout);
         Bottomnavigation = findViewById(R.id.btn_Bottomnavigation);
@@ -50,6 +56,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         opencontacts = findViewById(R.id.btn_opencontacts);
         customTitleBar = findViewById(R.id.maintitlebar);
         switchappicon = findViewById(R.id.btn_switchappicon);
+        easeui = findViewById(R.id.btn_easeui);
         customTitleBar
                 .setTitle("功能中心");
         customTitleBar.hideBackImg();
@@ -60,6 +67,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         contact.setOnClickListener(this);
         opencontacts.setOnClickListener(this);
         switchappicon.setOnClickListener(this);
+        easeui.setOnClickListener(this);
     }
 
     @Override
@@ -105,6 +113,9 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                 packageManager.setComponentEnabledSetting(new ComponentName(this, getPackageName() +
                         ".RoundActivity"), PackageManager.COMPONENT_ENABLED_STATE_ENABLED, PackageManager
                         .DONT_KILL_APP);
+                break;
+            case R.id.btn_easeui:
+                startActivity(new Intent(MainActivity.this,EaseUiActivity.class));
                 break;
         }
     }
