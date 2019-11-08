@@ -79,7 +79,7 @@ public class EaseUiActivity extends BaseActivity implements View.OnClickListener
                         // EMClient.getInstance().groupManager().loadAllGroups();
 
                         // 登录成功跳转界面
-                        Intent intnt = new Intent(EaseUiActivity.this, EaseUiActivity.class);
+                        Intent intnt = new Intent(EaseUiActivity.this, EaseUiFeaturesActivity.class);
                         startActivity(intnt);
                         finish();
                     }
