@@ -135,7 +135,7 @@ public class MainActivity extends AppCompatActivity {
         BitmapDescriptor bitmapDescriptor = BitmapDescriptorFactory.fromResource(R.mipmap.ic_launcher);
 
         //精度圈填充颜色
-        int accuracyCircleFillColor = Color.parseColor("#99ff0000");
+        int accuracyCircleFillColor = Color.parseColor("8");
 
         //自定义精度圈边框颜色
         int accuracyCircleStrokeColor = Color.parseColor("#11ff0000");

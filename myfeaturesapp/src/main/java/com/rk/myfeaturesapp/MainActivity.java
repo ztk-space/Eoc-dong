@@ -29,6 +29,8 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     private Button opencontacts;
     private Button switchappicon;
     private Button easeui;
+    private Button gotaobao;
+    private Button qrcode;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -57,8 +59,9 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         customTitleBar = findViewById(R.id.maintitlebar);
         switchappicon = findViewById(R.id.btn_switchappicon);
         easeui = findViewById(R.id.btn_easeui);
-        customTitleBar
-                .setTitle("功能中心");
+        gotaobao = findViewById(R.id.btn_taobao);
+        qrcode = findViewById(R.id.btn_qrcode);
+        customTitleBar.setTitle("功能中心");
         customTitleBar.hideBackImg();
         button.setOnClickListener(this);
         Bottomnavigation.setOnClickListener(this);
@@ -68,6 +71,8 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         opencontacts.setOnClickListener(this);
         switchappicon.setOnClickListener(this);
         easeui.setOnClickListener(this);
+        gotaobao.setOnClickListener(this);
+        qrcode.setOnClickListener(this);
     }
 
     @Override
@@ -91,7 +96,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                 startActivity(new Intent(MainActivity.this,SMSActivity.class));
                 break;
                 //打开相机
-            case R.id.btn_camear:
+                case R.id.btn_camear:
                 startActivity(new Intent(MainActivity.this,CamearActivity.class));
                 break;
                 //短信通话记录
@@ -116,6 +121,16 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                 break;
             case R.id.btn_easeui:
                 startActivity(new Intent(MainActivity.this,EaseUiActivity.class));
+                break;
+            case R.id.btn_taobao:
+                Intent intent = new Intent(Intent.ACTION_MAIN);
+                //前提：知道要跳转应用的包名、类名
+                ComponentName componentName = new ComponentName("com.rk.mymap", "com.rk.mymap.MainActivity");
+                intent.setComponent(componentName);
+                startActivity(intent);
+                break;
+            case R.id.btn_qrcode:
+                startActivity(new Intent(MainActivity.this,QRcodeActivity.class));
                 break;
         }
     }
