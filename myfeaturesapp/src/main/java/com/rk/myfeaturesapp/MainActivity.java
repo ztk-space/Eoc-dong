@@ -31,6 +31,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     private Button easeui;
     private Button gotaobao;
     private Button qrcode;
+    private Button qrcodescanning;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -61,6 +62,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         easeui = findViewById(R.id.btn_easeui);
         gotaobao = findViewById(R.id.btn_taobao);
         qrcode = findViewById(R.id.btn_qrcode);
+        qrcodescanning = findViewById(R.id.btn_qrcodescanning);
         customTitleBar.setTitle("功能中心");
         customTitleBar.hideBackImg();
         button.setOnClickListener(this);
@@ -73,6 +75,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         easeui.setOnClickListener(this);
         gotaobao.setOnClickListener(this);
         qrcode.setOnClickListener(this);
+        qrcodescanning.setOnClickListener(this);
     }
 
     @Override
@@ -131,6 +134,9 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                 break;
             case R.id.btn_qrcode:
                 startActivity(new Intent(MainActivity.this,QRcodeActivity.class));
+                break;
+            case R.id.btn_qrcodescanning:
+                startActivity(new Intent(MainActivity.this,ScanQRcodeActivity.class));
                 break;
         }
     }
